@@ -7,27 +7,27 @@ import screens.StartPage;
 
 import java.util.Random;
 
-public class RegistrationTests extends TestBase{
+public class RegistrationTests extends TestBase {
 
 
-    @Test(invocationCount=5)
-    public void registrationPositiveTest(){
-        int i = new Random().nextInt(1000)+1000;
+    @Test(invocationCount = 5)
+    public void registrationPositiveTest() {
+        int i = new Random().nextInt(1000) + 1000;
         new StartPage(driver)
                 .openLogRegPage_buttonJoin()
                 .clickButtonSignUpForm()
                 .fillRegistrationForm(UserModel.builder()
-                        .name("Qwerty"+i)
-                        .email("Qwerty"+i+"@gmail.com")
-                        .password(i+"Qwerty_")
-                        .confirmPassword(i+"Qwerty_")
+                        .name("Qwerty" + i)
+                        .email("Qwerty" + i + "@gmail.com")
+                        .password(i + "Qwerty_")
+                        .confirmPassword(i + "Qwerty_")
                         .build())
                 .clickButtonSubmit()
-                ;
+        ;
     }
 
     @AfterMethod
-    public void postCondition(){
+    public void postCondition() {
         new HomePage(driver).clickButtonLogout();
     }
 
